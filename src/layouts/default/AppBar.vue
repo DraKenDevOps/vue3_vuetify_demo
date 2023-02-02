@@ -1,11 +1,8 @@
 <template>
-  <v-app-bar flat>
+  <v-app-bar flat class="bg-primary">
     <v-app-bar-title>
-      <v-icon icon="mdi-circle-slice-4" />
-      Base Preset
-      <div class="box">
-        <h1>Appbard</h1>
-      </div>
+      <v-icon icon="mdi-pac-man" />
+      Monkey Mania
     </v-app-bar-title>
   </v-app-bar>
 </template>
