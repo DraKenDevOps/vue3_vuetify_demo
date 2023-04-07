@@ -1,27 +1,3 @@
-<template>
-  <v-container class="fill-height">
-    <v-responsive class="text-center">
-      <img v-bind:src="monkey" alt="monk">
-      <h1 class="text-h2 font-weight-bold text-success">ມີລີງ {{ state.count }} ໂຕ</h1>
-      <!-- <h1 class="text-h2 font-weight-bold text-success">ມີເມຍ {{ state.count }} ຄົນ 😏</h1> -->
-      <h1 class="text-h2 font-weight-bold text-success">ມີແຟນ {{ state.count }} ຄົນ 😏</h1>
-      <!-- <h1 class="text-h2 font-weight-bold text-success">ມີກິກ {{ state.count }} ຄົນ 😏</h1>
-      <h1 class="text-h2 font-weight-bold text-success">ມີເງິນ - {{ state.count }} ລ້ານ 🥴</h1> -->
-      <v-btn v-if="state.count <=0" color="primary" @click="increment" size="large" elevation="0">
-        <!-- <v-icon icon="mdi-speedometer" size="large" start /> -->
-        Add
-      </v-btn>
-      <!-- <v-btn v-if="state.count >= 1" color="danger" @click="decrement" size="large" elevation="0">
-        Remove
-      </v-btn> -->
-      <v-btn v-if="state.count >= 1" color="danger" @click="clear" size="large" elevation="0">
-        Clear
-      </v-btn>
-
-    </v-responsive>
-  </v-container>
-</template>
-
 <script lang="ts">
 import { defineComponent,reactive } from 'vue'
 
@@ -31,12 +7,12 @@ export default defineComponent({
 
     const monkey:string = "https://i.kym-cdn.com/entries/icons/original/000/037/043/monkey_sony_walkman.jpg"
 
-    const tt = setInterval(() => {
-      increment()
-    }, 500)
-    
+    let tt:any
+
     function increment() {
-      state.count++
+      tt = setInterval(() => {
+        state.count++
+      }, 1000)
     }
     function decrement(){
       if (state.count <= 0) {
@@ -46,12 +22,10 @@ export default defineComponent({
     }
 
     function clear(){
+      state.count = 0
       return clearInterval(tt)
     }
 
-    
-
-  
     return {
       state,
       increment,
@@ -61,7 +35,6 @@ export default defineComponent({
     }
   }
 })
-
 </script>
 
 <!-- <script lang="ts" setup>
@@ -74,3 +47,19 @@ function increment() {
 }
 
 </script> -->
+<template>
+  <v-container class="fill-height">
+    <v-responsive class="text-center">
+      <img v-bind:src="monkey" alt="monk">
+      <h1 class="text-h2 font-weight-bold text-success">ມີລີງ {{ state.count }} ໂຕ</h1>
+      <h1 class="text-h2 font-weight-bold text-success">ມີແຟນ {{ state.count }} ຄົນ 😏</h1>
+      <v-btn v-if="state.count <= 0" color="primary" @click="increment" size="large" elevation="0">
+        <!-- <v-icon icon="mdi-speedometer" size="large" start /> -->
+        Add
+      </v-btn>
+      <v-btn v-if="state.count >= 1" color="danger" @click="clear" size="large" elevation="0">
+        Clear
+      </v-btn>
+    </v-responsive>
+  </v-container>
+</template>

@@ -1,9 +1,6 @@
-<template>
-  <HelloWorld />
-  <Level/>
-</template>
-
 <script lang="ts" setup>
-  import HelloWorld from '@/components/HelloWorld.vue'
-  import Level from '@/components/Level.vue';
+import HelloWorld from '@/components/HelloWorld.vue'
 </script>
+<template>
+  <hello-world />
+</template>
